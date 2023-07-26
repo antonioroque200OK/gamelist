@@ -2,39 +2,39 @@ package com.antonioroque.gamelist.entities;
 
 public class BelongingPK {
 
-  private Belonging id;
-
-  private Integer position;
+  private Game game;
+  private GameList gameList;
 
   public BelongingPK() {}
 
-  public BelongingPK(Belonging id, Integer position) {
-    this.id = id;
-    this.position = position;
+  public BelongingPK(Game game, GameList gameList) {
+    this.game = game;
+    this.gameList = gameList;
+
   }
 
-  public Belonging getId() {
-    return this.id;
+  public Game getGame() {
+    return this.game;
   }
 
-  public Integer getPosition() {
-    return this.position;
+  public GameList getGameList() {
+    return this.gameList;
   }
 
-  public void setId(Belonging id) {
-    this.id = id;
+  public void setGame(Game game) {
+    this.game = game;
   }
 
-  public void setPosition(Integer position) {
-    this.position = position;
+  public void setGameList(GameList gameList) {
+    this.gameList = gameList;
   }
 
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    result = prime * result + ((position == null) ? 0 : position.hashCode());
+    result = prime * result + ((game == null) ? 0 : game.hashCode());
+    result = prime * result + ((gameList == null) ? 0 : gameList.hashCode());
     return result;
   }
 
@@ -47,19 +47,16 @@ public class BelongingPK {
     if (getClass() != obj.getClass())
       return false;
     BelongingPK other = (BelongingPK) obj;
-    if (id == null) {
-      if (other.id != null)
+    if (game == null) {
+      if (other.game != null)
         return false;
-    } else if (!id.equals(other.id))
+    } else if (!game.equals(other.game))
       return false;
-    if (position == null) {
-      if (other.position != null)
+    if (gameList == null) {
+      if (other.gameList != null)
         return false;
-    } else if (!position.equals(other.position))
+    } else if (!gameList.equals(other.gameList))
       return false;
     return true;
   }
-
-
-
 }
