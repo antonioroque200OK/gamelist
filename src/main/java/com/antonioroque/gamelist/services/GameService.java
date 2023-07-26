@@ -1,10 +1,13 @@
 package com.antonioroque.gamelist.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.antonioroque.gamelist.dto.GameDTO;
 import com.antonioroque.gamelist.dto.GameMinDTO;
 import com.antonioroque.gamelist.entities.Game;
 import com.antonioroque.gamelist.repositories.GameRepository;
@@ -22,8 +25,9 @@ public class GameService {
   }
 
   @Transactional(readOnly = true)
-  public GameMinDTO findById(Long id) {
-    Game entity = gameRepository.findById(id).orElseThrow();
-    return new GameMinDTO(entity);
+  public GameDTO findById(Long id) {
+    Game entity = gameRepository.findById(id).get();
+    // TODO implement optional and exception handling
+    return new GameDTO(entity);
   }
 }
